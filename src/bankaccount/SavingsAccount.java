@@ -1,10 +1,16 @@
+package bankaccount;
+
+/**
+ * Represents a savings account associated with an owner.
+ */
+
 public class SavingsAccount extends BankAccount {
-    String ownerName;
+    private String ownerName;
 
     public SavingsAccount(String ownerName) {
         super();
         this.ownerName = ownerName;
-        System.out.println("\nTest case 1 - Account Owner: " + ownerName + "\n");
+        System.out.println("\nAccount Owner: " + ownerName + "\n");
     }
 
     public String getOwnerName() {
