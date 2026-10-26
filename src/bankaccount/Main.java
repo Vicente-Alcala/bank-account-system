@@ -10,8 +10,11 @@ public class Main {
     public static void main(String[] args) {
         byte counter = 1;
 
+        // [TEST CASES FOR EXERCISE 1]
+        System.out.println("[TEST CASES FOR EXERCISE 1]\n");
+
         // Test case 1
-        System.out.printf("Test case %d", counter);
+        System.out.printf("Test case %d%n", counter);
         BankAccount acc1 = new SavingsAccount("Test0");
         counter++;
 
@@ -61,5 +64,31 @@ public class Main {
         acc1.unfreezeAccount();
         acc1.withdraw(100);
         counter++;
+
+        // [TEST CASES FOR EXERCISE 2]
+
+        // Test case 2.1
+        // System.out.println("Transaction History: " + acc1.getTransactionHistory());
+        System.out.println("\n[TEST CASES FOR EXERCISE 2]\n\nTest case 1");
+        System.out.println("Transaction History:");
+        for (Transaction t : acc1.getTransactionHistory()) {
+            System.out.println(t);
+        }
+
+        //Test case 2.2
+        System.out.println("\nTest case 2");
+        Bank accM1 = new BankAccountManager();
+
+        //Test case 2.3
+        System.out.println("Test case 3");
+        accM1.addAccount(acc1);
+
+        //Test case 2.4
+         System.out.println("Test case 4");
+         accM1.addAccount(new SavingsAccount("Test1"));
+
+         //Test case 2.5
+         System.out.println("Test case 5");
+         accM1.listAccounts();
     }
 }
