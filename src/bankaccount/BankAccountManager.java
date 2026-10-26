@@ -2,6 +2,8 @@ package bankaccount;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Manages bank accounts by assigning unique integer IDs and keeping track 
@@ -12,6 +14,7 @@ import java.util.Map;
 public class BankAccountManager implements Bank {
     Map<Integer, BankAccount> accounts;
     int id;
+
 
     public BankAccountManager() {
         accounts = new HashMap<>();
@@ -49,5 +52,27 @@ public class BankAccountManager implements Bank {
 
             System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n", accountId, owner, acc.getBalance());
         }
+    }
+
+    public List<Transaction> filterTransactionsAtOrAbove(double amount, List<Transaction> txList) {
+        List<Transaction> filtered = new ArrayList<>();
+        if (txList == null) return filtered;
+
+        for (Transaction tx : txList) {
+            if (tx.getAmount() >= amount) {
+                filtered.add(tx);
+            }
+        }
+        return filtered;
+    }
+
+    public List<Transaction> sortTransactionsByAmount(List<Transaction> txList) {
+        if (txList == null) return new ArrayList<>();
+
+        List<Transaction> sortedList = new ArrayList<>(txList);
+
+        sortedList.sort((tx1, tx2) -> Double.compare(tx1.getAmount(), tx2.getAmount()));
+
+        return sortedList;
     }
 }
