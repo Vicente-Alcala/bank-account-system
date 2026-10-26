@@ -68,7 +68,6 @@ public class Main {
         // [TEST CASES FOR EXERCISE 2]
 
         // Test case 2.1
-        // System.out.println("Transaction History: " + acc1.getTransactionHistory());
         System.out.println("\n[TEST CASES FOR EXERCISE 2]\n\nTest case 1");
         System.out.println("Transaction History:");
         for (Transaction t : acc1.getTransactionHistory()) {
