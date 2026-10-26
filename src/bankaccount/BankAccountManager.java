@@ -47,10 +47,7 @@ public class BankAccountManager implements Bank {
                 owner = ((SavingsAccount) acc).getOwnerName();
             }
 
-            // System.out.println("Account ID: " + accountId + ", Account Name: " + owner +
-            // ", Balance: " + acc.getBalance());
             System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n", accountId, owner, acc.getBalance());
-            //toString(accountId, owner, acc.getBalance());
         }
     }
 }

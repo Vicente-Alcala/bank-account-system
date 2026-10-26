@@ -21,24 +21,7 @@ public class Transaction {
         this.amount = amount;
         this.time_stamp = LocalDateTime.now();
     }
-
-    // @Override
-    // public String toString() {
-    // return "Type: " + type + ", Amount: " + amount + ", Time Stamp: " +
-    // time_stamp;
-    // }
-
-    // @Override
-    // public String toString() {
-    // return String.format("%-10s | Amount: %-8.2f | Date: %s", type, amount,
-    // time_stamp);
-    // }
-
-    // @Override
-    // public String toString() {
-    //     return "type=" + type + ", amount=" + amount + ", time_stamp=" + time_stamp.format(FORMATTER) + "]";
-    // }
-
+    
     @Override
     public String toString() {
         return String.format("Type: %-8s | Amount: %-8.2f | Time Stamp: %s",
