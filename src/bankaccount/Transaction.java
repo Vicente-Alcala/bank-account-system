@@ -10,8 +10,8 @@ import java.time.format.DateTimeFormatter;
  * @author Vicente Miguel Alcala
  */
 public class Transaction {
-    String type;
-    double amount;
+    private String type;
+    private double amount;
     LocalDateTime time_stamp;
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -20,6 +20,10 @@ public class Transaction {
         this.type = type;
         this.amount = amount;
         this.time_stamp = LocalDateTime.now();
+    }
+
+    public double getAmount() {
+        return amount;
     }
     
     @Override

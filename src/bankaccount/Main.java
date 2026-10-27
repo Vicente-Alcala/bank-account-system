@@ -1,5 +1,7 @@
 package bankaccount;
 
+import java.util.List;
+
 /**
  * Demonstrates the bank account system and its operations.
  *
@@ -89,5 +91,50 @@ public class Main {
          //Test case 2.5
          System.out.println("Test case 5");
          accM1.listAccounts();
+
+
+        // [TEST CASES FOR EXERCISE 3]
+        System.out.println("[TEST CASES FOR EXERCISE 3]\n");
+        BankAccount acc3 = new SavingsAccount("Test2");
+        accM1.addAccount(acc3);
+        acc3.deposit(500.13);
+
+        // Test case 3.1
+        System.out.println("Test case 1");
+        acc3.deposit(-500);
+
+        //Test case 3.2
+        System.out.println("Test case 2");
+        acc3.freezeAccount();
+        acc3.deposit(11500);
+        acc3.unfreezeAccount();
+
+        //Test case 3.3
+        System.out.println("Test case 3");
+        acc3.withdraw(-100);
+
+        //Test case 3.4
+        System.out.println("Test case 4");
+        acc3.withdraw(1500);
+
+        //Test case 3.5
+        System.out.println("Test case 5");
+        acc3.freezeAccount();
+        acc3.withdraw(500);
+        acc3.unfreezeAccount();
+
+        //Test case 3.6
+        System.out.println("Test case 6\nFiltering transactions at or above 200...");
+        List<Transaction> filteredTransactions = accM1.filterTransactionsAtOrAbove(200.0, acc1.getTransactionHistory());
+        for (Transaction t : filteredTransactions) {
+            System.out.println(t);
+        }
+
+        //Test case 3.7
+        System.out.println("\nTest case 7\nSorting by amount...");
+        List<Transaction> sortedTransactions = accM1.sortTransactionsByAmount(acc1.getTransactionHistory());
+        for (Transaction t : sortedTransactions) {
+            System.out.println(t);
+        }
     }
 }
