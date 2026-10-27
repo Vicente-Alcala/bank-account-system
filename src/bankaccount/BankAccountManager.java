@@ -1,9 +1,10 @@
 package bankaccount;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Manages bank accounts by assigning unique integer IDs and keeping track 
@@ -24,6 +25,10 @@ public class BankAccountManager implements Bank {
         System.out.println("-\n");
     }
 
+    /**
+     * Adds a bank account to the system if the maximum account capacity 
+     * has not been reached, assigning it a unique integer ID.
+     */
     @Override
     public BankAccount addAccount(BankAccount account) {
         if (accounts.size() < MAX_ACCOUNT_CREATION_LIMIT) {
@@ -44,6 +49,10 @@ public class BankAccountManager implements Bank {
         return accounts.get(id);
     }
 
+    /**
+     * Displays details for all registered bank accounts, including account 
+     * ID, owner name (if applicable), and current balance.
+     */
     public void listAccounts() {
         for (Map.Entry<Integer, BankAccount> entry : accounts.entrySet()) {
             int accountId = entry.getKey();
@@ -63,6 +72,10 @@ public class BankAccountManager implements Bank {
         
     }
 
+    /**
+     * Filters a list of transactions to include only those with a monetary 
+     * amount greater than or equal to a specified minimum value.
+     */
     public List<Transaction> filterTransactionsAtOrAbove(
         double amount, List<Transaction> txList) {
         List<Transaction> filtered = new ArrayList<>();
@@ -76,6 +89,10 @@ public class BankAccountManager implements Bank {
         return filtered;
     }
 
+    /**
+     * Sorts a list of transactions in ascending order based on their monetary 
+     * amount.
+     */
     public List<Transaction> sortTransactionsByAmount(
         List<Transaction> txList) {
         if (txList == null) return new ArrayList<>();

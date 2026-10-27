@@ -3,7 +3,8 @@ package bankaccount;
 import java.util.List;
 
 /**
- * Interface defining the core operational contract for bank account management systems.
+ * Interface defining the core operational contract for 
+ * bank account management systems.
  * 
  * @author Vicente Miguel Alcala
  */

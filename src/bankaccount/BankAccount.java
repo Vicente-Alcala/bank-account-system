@@ -1,12 +1,10 @@
 package bankaccount;
 
-import java.util.List;
-
 import exception.AccountFrozenException;
 import exception.InsufficientFundsException;
 import exception.InvalidAmountException;
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a bank account with deposit, withdrawal,
@@ -24,6 +22,18 @@ public class BankAccount {
         transactionHistory = new ArrayList<>();
     }
 
+    /**
+     * Deposits a specified monetary amount into the account.
+     * <p>
+     * Validates that the account is unfrozen and that the deposit amount 
+     * is greater than zero before updating the balance and recording the 
+     * transaction.
+     * </p>
+     * @param amount the monetary value to deposit; must be greater than zero
+     * @throws AccountFrozenException if the account is currently frozen
+     * @throws InvalidAmountException if {@code amount} is less than or 
+     *                                equal to zero
+     */
     public void deposit(double amount) {
         try {
             if (isFrozen()) {
@@ -47,6 +57,21 @@ public class BankAccount {
         }
     }
 
+    /**
+     * Withdraws a specified monetary amount from the account.
+     * <p>
+     * Validates that the account is unfrozen, the withdrawal amount is 
+     * positive, and sufficient funds exist before deducting the balance 
+     * and recording the transaction.
+     * </p>
+     * 
+     * @param amount the monetary value to withdraw; must be greater than zero
+     * @throws AccountFrozenException if the account is currently frozen
+     * @throws InvalidAmountException if {@code amount} is less than or 
+     *                                equal to zero
+     * @throws InsufficientFundsException if {@code amount} exceeds the 
+     *                                     current balance
+     */
     public void withdraw(double amount) {
         try {
             if (isFrozen()) {
