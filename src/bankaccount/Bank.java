@@ -12,6 +12,8 @@ public interface Bank {
     BankAccount getAccount(int id);
     void listAccounts();
 
-    List<Transaction> filterTransactionsAtOrAbove(double amount, List<Transaction> txList);
-    List<Transaction> sortTransactionsByAmount(List<Transaction> txList);
+    List<Transaction> filterTransactionsAtOrAbove(
+        double amount, List<Transaction> txList);
+    List<Transaction> sortTransactionsByAmount(
+        List<Transaction> txList);
 }

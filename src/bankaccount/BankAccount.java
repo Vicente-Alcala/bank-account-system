@@ -25,27 +25,14 @@ public class BankAccount {
     }
 
     public void deposit(double amount) {
-        // if (isFrozen()) {
-        // System.out.printf("Account is FROZEN. Unable to transact.\n\n");
-        // return;
-        // }
-        // if (amount > 0) {
-        // balance += amount;
-        // System.out.printf("Amount deposited: %.2f%n", amount);
-        // System.out.printf("Current balance: %.2f%n%n", getBalance());
-        // transactionHistory.add(new Transaction("Deposit", amount));
-        // } else {
-        // System.out.printf("Amount deposited: %.2f%n", amount);
-        // System.out.printf("Invalid amount. Must be greater than 0.%n");
-        // System.out.printf("Current balance: %.2f%n%n", getBalance());
-        // }
-
         try {
             if (isFrozen()) {
-                throw new AccountFrozenException("Account is FROZEN. Unable to transact.");
+                throw new AccountFrozenException(
+                    "Account is FROZEN. Unable to transact.");
             }
             if (amount <= 0) {
-                throw new InvalidAmountException("Invalid amount. Must be greater than 0.");
+                throw new InvalidAmountException(
+                    "Invalid amount. Must be greater than 0.");
             }
             balance += amount;
             System.out.printf("Amount deposited: %.2f%n", amount);
@@ -61,31 +48,14 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) {
-        // if (isFrozen()) {
-        // System.out.printf("Account is FROZEN. Unable to transact.\n\n");
-        // return;
-        // }
-        // if (amount > 0 && amount <= balance) {
-        // balance -= amount;
-        // System.out.printf("Amount withdrawn: %.2f%n", amount);
-        // System.out.printf("Current balance: %.2f%n%n", getBalance());
-        // transactionHistory.add(new Transaction("Withdraw", amount));
-        // } else if (amount <= 0) {
-        // System.out.printf("Amount withdrawn: %.2f%n", amount);
-        // System.out.printf("Invalid amount. Must be greater than 0.%n");
-        // System.out.printf("Current balance: %.2f%n%n", getBalance());
-        // } else if (amount > balance) {
-        // System.out.printf("Amount withdrawn: %.2f%n", amount);
-        // System.out.printf("Insufficient balance.%n");
-        // System.out.printf("Current balance: %.2f%n%n", getBalance());
-        // }
-
         try {
             if (isFrozen()) {
-                throw new AccountFrozenException("Account is FROZEN. Unable to transact.");
+                throw new AccountFrozenException(
+                    "Account is FROZEN. Unable to transact.");
             }
             if (amount <= 0) {
-                throw new InvalidAmountException("Invalid amount. Must be greater than 0.");
+                throw new InvalidAmountException(
+                    "Invalid amount. Must be greater than 0.");
             }
             if (amount > balance) {
                 throw new InsufficientFundsException("Insufficient balance.");

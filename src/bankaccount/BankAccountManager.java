@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 /**
  * Manages bank accounts by assigning unique integer IDs and keeping track 
- * of accounts up to a maximum capacity of 100 entries. Implements {@link Bank}.
+ * of accounts up to a maximum capacity of 100 entries. 
+ * Implements {@link Bank}.
  * 
  * @author Vicente Miguel Alcala
  */
 public class BankAccountManager implements Bank {
     Map<Integer, BankAccount> accounts;
-    int id;
+    private int id;
+    private final int MAX_ACCOUNT_CREATION_LIMIT = 100;
 
 
     public BankAccountManager() {
@@ -24,13 +26,15 @@ public class BankAccountManager implements Bank {
 
     @Override
     public BankAccount addAccount(BankAccount account) {
-        if (accounts.size() < 100) {
+        if (accounts.size() < MAX_ACCOUNT_CREATION_LIMIT) {
             accounts.put(id, account);
-            System.out.println("Account added successfully with ID: " + id +"\n");
+            System.out.println("Account added successfully with ID: " 
+            + id +"\n");
             id++;
             return account;
         } else {
-            System.out.println("The maximum limit of created accounts is 100.");
+            System.out.println("The maximum limit of created accounts is " 
+            + MAX_ACCOUNT_CREATION_LIMIT +".");
             return null;
         }
     }
@@ -50,11 +54,17 @@ public class BankAccountManager implements Bank {
                 owner = ((SavingsAccount) acc).getOwnerName();
             }
 
-            System.out.printf("Account ID: %d, Account Name: %s, Balance: %.2f%n", accountId, owner, acc.getBalance());
+            System.out.printf("Account ID: %d%n" +
+                              "Account Name: %s%n" +
+                              "Balance: %.2f%n"
+                              , accountId, owner, acc.getBalance());
+            System.out.println();
         }
+        
     }
 
-    public List<Transaction> filterTransactionsAtOrAbove(double amount, List<Transaction> txList) {
+    public List<Transaction> filterTransactionsAtOrAbove(
+        double amount, List<Transaction> txList) {
         List<Transaction> filtered = new ArrayList<>();
         if (txList == null) return filtered;
 
@@ -66,12 +76,14 @@ public class BankAccountManager implements Bank {
         return filtered;
     }
 
-    public List<Transaction> sortTransactionsByAmount(List<Transaction> txList) {
+    public List<Transaction> sortTransactionsByAmount(
+        List<Transaction> txList) {
         if (txList == null) return new ArrayList<>();
 
         List<Transaction> sortedList = new ArrayList<>(txList);
 
-        sortedList.sort((tx1, tx2) -> Double.compare(tx1.getAmount(), tx2.getAmount()));
+        sortedList.sort((tx1, tx2) -> Double.compare(
+            tx1.getAmount(), tx2.getAmount()));
 
         return sortedList;
     }
